@@ -48,7 +48,7 @@ Users only need to reference this project, configure their own official account 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/wechat-message-push.git
+git [clone https://github.com/your-username/wechat-message-push.git](https://github.com/Jonlson/wxmp-message.git)
 cd wechat-message-push
 ```
 
