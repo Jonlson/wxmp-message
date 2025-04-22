@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <link rel="stylesheet" href="${springUrl}css/mgtTyle.css">
+  <link rel="stylesheet" href="${springUrl}css/Tyle.css">
   <script type="text/javascript" src="${springUrl}js/jquery.min.js" charset="utf-8"></script>
   <title>绑定手机号</title>
 </head>
@@ -45,19 +45,19 @@
         phoneChange(value, btn)
       }, false)
       btn.addEventListener('click', function () {
-        window.location.href = '${springUrl}mgt_wx/get-code?phone=' + phone + '&openId=' + document.getElementById('openId').value
+        window.location.href = '${springUrl}_wx/get-code?phone=' + phone + '&openId=' + document.getElementById('openId').value
       }, false)
 
       bindBtn.addEventListener('click', function () {
       $.ajax({
         type: 'post',
-        url: '${springUrl}mgt_wx/check',
+        url: '${springUrl}_wx/check',
         data: {phone: phone, code: document.getElementById('code').value},
         cache: false,
         dataType: "json",
         success: function (result) {
           if(result.code == 0){
-            window.location.href = '${springUrl}mgt_wx/has-bind?phone='+phone+'&openId='+document.getElementById('openId').value
+            window.location.href = '${springUrl}_wx/has-bind?phone='+phone+'&openId='+document.getElementById('openId').value
           }else{
             var confirm = document.getElementById('confirm')
             confirm.style.display = 'block'

@@ -55,7 +55,7 @@
         switch (id) {
           // 修改绑定手机号
           case 'editPhone':
-            window.location.href = '${springUrl}mgt_wx/phoneBinding?id='+document.getElementById('_id').value+'&openId='+document.getElementById('openId').value
+            window.location.href = '${springUrl}_wx/phoneBinding?id='+document.getElementById('_id').value+'&openId='+document.getElementById('openId').value
             break;
           // 取消绑定手机号
           case 'cancelBind':
@@ -88,12 +88,12 @@
         if (!flag && type == "ok"){
           $.ajax({
             type: 'get',
-            url: '${springUrl}mgt_wx/deleted?id='+document.getElementById('_id').value,
+            url: '${springUrl}_wx/deleted?id='+document.getElementById('_id').value,
             cache: false,
             dataType: "json",
             success: function(result) {
               if(result.code == 0){
-                window.location.href = '${springUrl}mgt_wx/phoneBinding?openId='+document.getElementById('openId').value
+                window.location.href = '${springUrl}_wx/phoneBinding?openId='+document.getElementById('openId').value
               }
 
             }

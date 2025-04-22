@@ -68,13 +68,13 @@
     btn.addEventListener('click', function () {
       $.ajax({
         type: 'post',
-        url: '${springUrl}mgt_wx/check',
+        url: '${springUrl}_wx/check',
         data: {phone: phone, code: document.getElementById('code').value},
         cache: false,
         dataType: "json",
         success: function (result) {
           if(result.code == 0){
-            window.location.href = '${springUrl}mgt_wx/has-bind?phone='+phone+'&openId='+document.getElementById('openId').value
+            window.location.href = '${springUrl}_wx/has-bind?phone='+phone+'&openId='+document.getElementById('openId').value
           }else{
             var confirm = document.getElementById('confirm')
             confirm.style.display = 'block'
@@ -84,7 +84,7 @@
       });
     }, false)
     tipEle.addEventListener('click', function () {
-      window.location.href = '${springUrl}mgt_wx/get-code?phone='+phone+'&openId='+document.getElementById('openId').value
+      window.location.href = '${springUrl}_wx/get-code?phone='+phone+'&openId='+document.getElementById('openId').value
     }, false)
 
     function phoneTip () {

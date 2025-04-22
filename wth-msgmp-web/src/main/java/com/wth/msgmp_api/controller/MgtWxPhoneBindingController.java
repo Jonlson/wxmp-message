@@ -2,7 +2,7 @@ package com.wth.msgmp_api.controller;
 
 
 import com.wth.msgmp_api.bean.WxLoginDto;
-import com.wth.msgmp_api.service.MgtWxPhoneBindingService;
+import com.wth.msgmp_api.service.WthWxPhoneBindingService;
 import com.wth.msgmp_api.service.WxPhoneBindingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -15,10 +15,10 @@ import javax.annotation.Resource;
 
 @Slf4j
 @Controller
-@RequestMapping("/mgt_wx")
-public class MgtWxPhoneBindingController {
+@RequestMapping("/wth_wx")
+public class WthWxPhoneBindingController {
     @Resource
-    private MgtWxPhoneBindingService mgtWxPhoneBindingService;
+    private WthWxPhoneBindingService wthWxPhoneBindingService;
     @Resource
     private WxPhoneBindingService wxPhoneBindingService;
 
@@ -38,7 +38,7 @@ public class MgtWxPhoneBindingController {
         rntWxLoginDto.setPhone(wechatMpUser.getPhone());
         rntWxLoginDto.setSceneId(wxLoginDto.getSceneId());
         modelMap.addAttribute("WechatMpUser", rntWxLoginDto);
-        return new ModelAndView("/mgtStatic/binding/has-login");
+        return new ModelAndView("/wthStatic/binding/has-login");
     }
 
     /**
@@ -47,7 +47,7 @@ public class MgtWxPhoneBindingController {
     @ResponseBody
     @RequestMapping("/wx_login")
     public Result<?> wxLogin(WxLoginDto wxLoginDto, ModelMap modelMap) {
-        Result<?> result = mgtWxPhoneBindingService.wxLogin(wxLoginDto);
+        Result<?> result = wthWxPhoneBindingService.wxLogin(wxLoginDto);
         return result;
     }
     /**
@@ -55,7 +55,7 @@ public class MgtWxPhoneBindingController {
      */
     @RequestMapping("/login_success")
     public ModelAndView loginSuccess(ModelMap modelMap) {
-        return new ModelAndView("/mgtStatic/binding/login-success");
+        return new ModelAndView("/wthStatic/binding/login-success");
     }
 
 }

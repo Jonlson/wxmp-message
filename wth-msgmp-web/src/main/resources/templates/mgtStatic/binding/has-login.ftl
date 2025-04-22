@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" href="${springUrl}css/mgtStyle.css">
+    <link rel="stylesheet" href="${springUrl}css/Style.css">
     <script type="text/javascript" src="${springUrl}js/jquery.min.js" charset="utf-8"></script>
     <title>登录</title>
 </head>
@@ -27,7 +27,7 @@
         btn.addEventListener('click', function () {
             $.ajax({
                 type: 'post',
-                url: '${springUrl}mgt_wx/wx_login',
+                url: '${springUrl}_wx/wx_login',
                 data: {
                     sceneId: document.getElementById('sceneId').value,
                     phone: document.getElementById('phone').value
@@ -36,7 +36,7 @@
                 dataType: "json",
                 success: function (result) {
                     if (result.code === 0) {
-                        window.location.href = '${springUrl}mgt_wx/login_success'
+                        window.location.href = '${springUrl}_wx/login_success'
                     }
                 }
             });

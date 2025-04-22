@@ -69,7 +69,6 @@
         <weixin-java-mp.version>4.1.0</weixin-java-mp.version>
         <weixin-java-miniapp.version>4.3.0</weixin-java-miniapp.version>
         <rocketmq-spring-boot-starter.version>2.2.2</rocketmq-spring-boot-starter.version>
-        <zhiyun-svem-iot-entity-common.version>0.0.1</zhiyun-svem-iot-entity-common.version>
         <jedis-lock.version>1.0.0</jedis-lock.version>
     </properties>
 
