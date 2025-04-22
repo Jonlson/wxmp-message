@@ -1,0 +1,242 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  background-color: #fff;
+  font-size: 10px;
+}
+body {
+  padding: 7.2rem 4.7rem 0;
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.h1-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #151515;
+  font-family: PingFangSC, PingFang SC;
+  margin-bottom: 0.6rem;
+}
+.sub-title {
+  font-size: 1.3rem;
+  color: #9FA1A3;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.input {
+  width: calc(100% - 2rem);
+  height: 4.6rem;
+  background: #FFFFFF;
+  border-radius: 3.35rem;
+  border: 0.1rem solid #EFEFF4;
+  margin-top: 5rem;
+  padding-left: 2rem;
+  outline: none;
+}
+.input::placeholder {
+  color: #9FA1A3;
+  font-size: 1.4rem;
+}
+.tip {
+  font-size: 1.5rem;
+  color: #b5b5b8;
+  border: none;
+  outline: none;
+  background: none;
+  margin-top: 1rem;
+  float: right;
+}
+.tip.active {
+  color: #ff8720;
+}
+.error-info {
+  color: rgba(255, 0, 0, 0.8);
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+.code-box {
+  position: relative;
+  width: 100%;
+}
+.get-code {
+  position: absolute;
+  right: 0.5rem;
+  top: 2.2rem;
+  width: 10rem;
+  height: 3.6rem;
+  background: #4C86FE;
+  border: none;
+  border-radius: 2.79rem;
+  font-size: 1.2rem;
+  font-family: PingFangSC, PingFang SC;
+  color: #FFFFFF;
+}
+.btn {
+  height: 4.6rem;
+  background: #4C86FE;
+  border: none;
+  width: 100%;
+  border-radius: 3.35rem;
+  margin-top: 3rem;
+  display: block;
+  color: #ffffff;
+  font-size: 1.4rem;
+}
+.btn.get-code {
+  margin-top: 7.3rem;
+}
+.btn.active {
+  background: #ff8720;
+}
+.btn.active-color {
+  border: 1px solid #ff8720;
+  background: none;
+  color: #ff8720;
+}
+.phone-card {
+  background: #ffffff;
+  height: 21rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.phone-card .current-phone {
+  color: #ff8720;
+}
+.mask {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.confirm {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.confirm .content {
+  position: relative;
+  width: 27rem;
+  height: 15rem;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background: #FFFFFF;
+  border-radius: 1rem;
+}
+.confirm .content .unbind-tip {
+  height: 10rem;
+  text-align: center;
+  line-height: 10rem;
+  font-size: 1.7rem;
+}
+.confirm .content .bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+}
+.confirm .content .bottom .btn {
+  flex: 1;
+  height: 5rem;
+  background: none;
+  border-radius: 0;
+  color: black;
+  border-top: 1px solid #ededed;
+}
+.confirm .content .bottom .btn.cancel {
+  border-right: 1px solid #ededed;
+}
+.page-box {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.img {
+  width: 6.4rem;
+  height: 6.4rem;
+  margin-bottom: 1.6rem;
+}
+.title-text {
+  font-size: 2rem;
+  font-family: PingFangSC, PingFang SC;
+  font-weight: 600;
+  color: #151515;
+  margin-bottom: 5rem;
+}
+.hint-box {
+	width: 278px;
+	height: 156px;
+	background: #f6f8fb;
+	border-radius: 4px;
+	border: 1px solid #efeff4;
+	padding: 24px;
+	box-sizing: border-box;
+	margin-top: 30px;
+
+}
+.name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #151515;
+  line-height: 22px;
+}
+.login-success {
+  margin-bottom: 0;
+}
+.ul {
+  margin-top: 20px;
+}
+.li {
+  font-size: 13px;
+  font-weight: 400;
+  color: #6c6f75;
+  list-style-type: none;
+  line-height: 18px;
+  padding-left: 11px;
+  position: relative;
+}
+.li:first-child {
+  margin-bottom: 12px;
+}
+.li::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: #6c6f75;
+  border-radius: 50%;
+  position: absolute;
+  top: 8px;
+  left: 0;
+  transform: translateY(-50%);
+}
+.hint {
+  font-size: 1.4rem;
+  font-family: PingFangSC, PingFang SC;
+  font-weight: 400;
+  color: #151515;
+  margin: 4rem 0;
+}
+.login {
+  margin-top: 0;
+}

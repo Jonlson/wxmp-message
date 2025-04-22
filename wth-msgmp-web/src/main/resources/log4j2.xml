@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration status="WARN">
+    <!-- %d{HH:mm:ss.SSS} 表示输出到毫秒的时间 %t 输出当前线程名称 %-5level 输出日志级别，-5表示左对齐并且固定输出5个字符，如果不足在右边补0 %logger 输出logger名称，因为Root Logger没有名称，所以没有输出 %msg 日志文本 %n 换行 其他常用的占位符有：
+        %F 输出所在的类文件名，如Client.java %L 输出行号 %M 输出所在方法名 %l 输出语句所在的行数, 包括类名、方法名、文件名、行数 -->
+    <Properties>
+        <Property name="log.path">logs/</Property>
+        <Property name="log.pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%F:%L] - %msg%n</Property>
+    </Properties>
+    <Appenders>
+        <!-- 这个输出控制台的配置 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${log.pattern}"/>
+        </Console>
+
+        <RollingFile name="RollingFileDebug" fileName="${log.path}/wrshgmp-service-debug.log"
+                     filePattern="${log.path}/$${date:yyyy-MM}/wrshgmp-service-debug-%d{yyyy-MM-dd}.log" immediateFlush="true"
+                     append="true">
+            <Filters>
+                <ThresholdFilter level="INFO" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${log.pattern}" charset="UTF-8"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+            <DefaultRolloverStrategy max="31"/>
+        </RollingFile>
+
+        <RollingFile name="RollingFileInfo" fileName="${log.path}/wrshgmp-service-info.log"
+                     filePattern="${log.path}/$${date:yyyy-MM}/wrshgmp-service-info-%d{yyyy-MM-dd}.log" immediateFlush="true"
+                     append="true">
+            <Filters>
+                <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${log.pattern}" charset="UTF-8"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+            <DefaultRolloverStrategy max="31"/>
+        </RollingFile>
+
+        <RollingFile name="RollingFileWarn" fileName="${log.path}/wrshgmp-service-warn.log"
+                     filePattern="${log.path}/$${date:yyyy-MM}/wrshgmp-service-warn-%d{yyyy-MM-dd}.log" immediateFlush="true"
+                     append="true">
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${log.pattern}" charset="UTF-8"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+            <DefaultRolloverStrategy max="31"/>
+        </RollingFile>
+
+        <RollingFile name="RollingFileError" fileName="${log.path}/wrshgmp-service-error.log"
+                     filePattern="${log.path}/$${date:yyyy-MM}/mwrshgmp-service-error-%d{yyyy-MM-dd}.log" immediateFlush="true"
+                     append="true">
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${log.pattern}" charset="UTF-8"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+            <DefaultRolloverStrategy max="31"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <!--采用异步输出日志name映射到类，并且会过滤信息级别 -->
+        <AsyncLogger name="com.hgobox.wrshgmp-service" level="INFO" includeLocation="true" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFileInfo"/>
+            <AppenderRef ref="RollingFileWarn"/>
+            <AppenderRef ref="RollingFileError"/>
+        </AsyncLogger>
+
+        <!-- 信息级别大小：debug < info < warn < error < fatal -->
+        <Root level="INFO" includeLocation="true">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFileDebug"/>
+            <AppenderRef ref="RollingFileInfo"/>
+            <AppenderRef ref="RollingFileWarn"/>
+            <AppenderRef ref="RollingFileError"/>
+        </Root>
+    </Loggers>
+</configuration>

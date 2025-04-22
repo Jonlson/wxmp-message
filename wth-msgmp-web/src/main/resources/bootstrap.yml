@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: prod
+  app:
+    version: 0.3.3
+
+  redis:
+    useRedis: true
+
+  configs:
+    - appId: # 第一个公众号的appid
+      secret: # 公众号的appsecret
+      token: # 接口配置里的Token值
+      aesKey: # 接口配置里的EncodingAESKey值
+

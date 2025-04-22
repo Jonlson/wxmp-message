@@ -1,0 +1,143 @@
+@primary-color: rgba(255, 135, 32, 1);
+@error-color: rgba(255, 0, 0, 0.8) ;
+@placeholder-color: rgba(181, 181, 184, 1);
+@border-color: rgba(237, 237, 237, 1);
+@grey-color: rgba(203, 203, 203, 1);
+@space-row: 40px;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  background-color: rgba(249, 249, 249, 1);
+  font-size: 10px;
+}
+body {
+  padding: @space-row;
+}
+.h1-title {
+  font-size: 1.9rem;
+  font-weight: bold;
+  height: 3.7rem;
+  color: #393939;
+}
+.sub-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  height: 2.3rem;
+  color: @placeholder-color;
+}
+.input {
+  border: none;
+  border-bottom: 0.01rem solid @placeholder-color;
+  width: 100%;
+  height: 5rem;
+  background: none;
+  margin-top: 8.3rem;
+  &::placeholder {
+    color: @placeholder-color;
+    font-size: 1.7rem;
+  }
+}
+.tip {
+  font-size: 1.5rem;
+  color: @placeholder-color;
+  border: none;
+  outline: none;
+  background: none;
+  margin-top: 1rem;
+  float: right;
+  &.active {
+    color: @primary-color;
+  }
+}
+.error-info {
+  color: @error-color;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+.btn {
+  height: 5rem;
+  background: @grey-color;
+  border: none;
+  width: 100%;
+  border-radius: 2.5rem;
+  display: block;
+  color: #ffffff;
+  &.get-code {
+    margin-top: 7.3rem;
+  }
+  &.active {
+    background: @primary-color;
+  }
+  &.active-color {
+    border: 1px solid @primary-color;
+    background: none;
+    color: @primary-color;
+  }
+}
+
+.phone-card {
+  background: #ffffff;
+  height: 21rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .current-phone {
+    color: @primary-color;
+  }
+}
+
+.mask {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.confirm {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  .content {
+    position: relative;
+    width: 27rem;
+    height: 15rem;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background: #FFFFFF;
+    border-radius: 1rem;
+    .unbind-tip {
+      height: 10rem;
+      text-align: center;
+      line-height: 10rem;
+      font-size: 1.7rem;
+    }
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      .btn {
+        flex: 1;
+        height: 5rem;
+        background: none;
+        border-radius: 0;
+        color: black;
+        border-top: 1px solid @border-color;
+        &.cancel {
+          border-right: 1px solid @border-color;
+        }
+      }
+    }
+  }
+}
